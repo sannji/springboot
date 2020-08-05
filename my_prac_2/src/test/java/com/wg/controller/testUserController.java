@@ -30,7 +30,7 @@ public class testUserController {
         //添加新内容
         request = MockMvcRequestBuilders.post("/users/")
                     .contentType(MediaType.APPLICATION_JSON)
-                    .content("{\"id\":1, \"name\":\"wanggang\", \"age\":33}");
+                    .content("{\"id\":1, \"name\":\"json\", \"age\":33}");
 
         result = mvc.perform(request)
                     .andExpect(MockMvcResultMatchers.content().string("success"))
@@ -41,7 +41,7 @@ public class testUserController {
         request = MockMvcRequestBuilders.get("/users/");
         result = mvc.perform(request)
                 .andExpect(MockMvcResultMatchers.content()
-                .string("[{\"id\":1,\"name\":\"wanggang\",\"age\":33}]"))
+                .string("[{\"id\":1,\"name\":\"json\",\"age\":33}]"))
                 .andReturn();
         System.out.println(result.getResponse().getContentAsString());
     }
