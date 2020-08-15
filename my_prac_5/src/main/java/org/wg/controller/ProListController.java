@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.wg.domain.FwqbxStatus;
 import org.wg.mapper.ProStatusMapper;
+import org.wg.util.ApiResponse;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class ProListController {
     ProStatusMapper proStatusMapper;
     @ApiOperation("未完成的报修单")
     @GetMapping("/prolist")
-    public List<FwqbxStatus> getProList() {
-        return proStatusMapper.getFwqbxList();
+    public ApiResponse getProList() {
+        return ApiResponse.createSuccess(proStatusMapper.getFwqbxList());
     }
 }
